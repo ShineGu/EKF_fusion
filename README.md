@@ -4,8 +4,10 @@
 ![y](./config/y.png)
 ![效果图](./config/y.gif)
 
-![Static Badge](https://img.shields.io/badge/ekf流程-blue)  
+![Static Badge](https://img.shields.io/badge/ekf流程-blue)
+
 ![Static Badge](https://img.shields.io/badge/状态方程-red)
+
 $$
 \begin{aligned}
 &x = f(x, u) + w \\
@@ -14,6 +16,7 @@ $$
 $$
 
 ![Static Badge](https://img.shields.io/badge/观测方程-red)
+
 $$
 \begin{aligned}
 &z = h(x) + v \\
@@ -22,6 +25,7 @@ $$
 $$
 
 ![Static Badge](https://img.shields.io/badge/预测方程-green)
+
 $$
 \begin{align}
 &x_{k/k-1}=Ax_{k-1/k-1}+Bu_k\tag{1}\\
@@ -30,6 +34,7 @@ $$
 $$
 
 ![Static Badge](https://img.shields.io/badge/更新方程-green)
+
 $$
 \begin{align}
 &K_k=\frac{P_{k/k-1}H^T}{HP_{k-1/k-1}H^T+R} \tag{3}\\
@@ -38,7 +43,8 @@ $$
 \end{align}
 $$
 
-![Static Badge](https://img.shields.io/badge/收集数据-purple)   
+![Static Badge](https://img.shields.io/badge/收集数据-purple)
+
 [具体imu与gps文档](https://pan.baidu.com/s/1bigJYQUTd0TCfswACV3pUg?pwd=8919)
 ```bash
 gps:
@@ -48,11 +54,13 @@ roslaunch ekf rviz_and_imu.launch
 ```
 
 ![Static Badge](https://img.shields.io/badge/转换数据-yellow)
+
 ```bash
 roslaunch ekf gps_to_xyz.launch
 ```
 
 ![Static Badge](https://img.shields.io/badge/融合数据-orange)
+
 ```bash
 python3 ekf.py
 ```
