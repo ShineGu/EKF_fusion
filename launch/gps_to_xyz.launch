@@ -1,0 +1,13 @@
+<launch>
+    <node name="gps_to_xyz" pkg="ekf" type="gps_to_xyz" output="screen" />
+    <node pkg="rosbag" type="play" name="play" args="--clock $(find ekf)/bags/imu_gps.bag" />
+    <node pkg="ekf" name="topic_data" type="topic_data.py" output="screen" >
+      <param name="gps_csv" type="str" value="$(find ekf)/csv/gps.csv" />
+      <param name="gps_xyz_csv" type="str" value="$(find ekf)/csv/gps_xyz.csv" />
+      <param name="imu_csv" type="str" value="$(find ekf)/csv/imu.csv" />
+    </node>
+    <!-- <node pkg="rviz" type="rviz" name="rviz" output="screen" 
+      args="-d $(find ekf)/rviz/default.rviz" required="true">
+    </node> -->
+</launch>
+
